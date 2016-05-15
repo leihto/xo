@@ -34,7 +34,10 @@ class Game:
                     print("Pole o podanych koordynatach jest już wypełnione!")
             else:
                 print("Podałeś błędne koordynaty - nie mogą one być mniejsze od 1 i większe od 3")
-        print("Gra skończona. Wygrał gracz %s" % self.winner)
+        if self.winner is None:
+            print("Gra skończona. Nastąpił remis!")
+        else:
+            print("Gra skończona. Wygrał gracz %s" % self.winner)
 
     def change_player(self):
         self._turn = self.PLAYERS[1] if self._turn == self.PLAYERS[0] else self.PLAYERS[0]
